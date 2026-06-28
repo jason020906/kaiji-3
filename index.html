@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-Card Kaiji - Multijoueur</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section id="home" class="panel home">
+      <h1>E-Card</h1>
+      <p class="subtitle">Empereur bat Citoyen · Citoyen bat Esclave · Esclave bat Empereur</p>
+
+      <div class="actions">
+        <button id="createBtn">Créer une partie</button>
+        <div class="joinBox">
+          <input id="roomInput" maxlength="6" placeholder="Code partie" />
+          <button id="joinBtn">Rejoindre</button>
+        </div>
+      </div>
+
+      <details class="setup">
+        <summary>Important : multijoueur écrans séparés</summary>
+        <p>Pour jouer chacun sur son écran via GitHub Pages, tu dois remplir <b>firebase.js</b> avec ta config Firebase Realtime Database.</p>
+      </details>
+    </section>
+
+    <section id="game" class="panel game hidden">
+      <header class="topbar">
+        <div>
+          <h2>Salon <span id="roomCode">------</span></h2>
+          <p id="status">Connexion...</p>
+        </div>
+        <button id="copyBtn" class="secondary">Copier le code</button>
+      </header>
+
+      <section class="scoreboard">
+        <div><span id="youName">Toi</span><b id="youScore">0</b></div>
+        <div><span>Manche</span><b id="roundNumber">1</b></div>
+        <div><span id="oppName">Adversaire</span><b id="oppScore">0</b></div>
+      </section>
+
+      <section class="table">
+        <div class="playSlot">
+          <h3>Ta carte</h3>
+          <div id="yourPlayed" class="card empty">?</div>
+        </div>
+        <div class="versus">VS</div>
+        <div class="playSlot">
+          <h3>Carte adverse</h3>
+          <div id="oppPlayed" class="card back">?</div>
+        </div>
+      </section>
+
+      <p id="result" class="result">Choisis une carte.</p>
+
+      <section>
+        <h3 id="handTitle">Ta main</h3>
+        <div id="hand" class="hand"></div>
+      </section>
+
+      <div class="bottomActions">
+        <button id="nextBtn" class="hidden">Manche suivante</button>
+        <button id="resetBtn" class="secondary">Reset partie</button>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
